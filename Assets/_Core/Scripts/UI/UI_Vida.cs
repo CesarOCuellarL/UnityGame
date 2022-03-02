@@ -1,0 +1,15 @@
+using UnityEngine;
+using UnityEngine.UI;
+
+public class UI_Vida : MonoBehaviour
+{
+    public Image vidaImage;
+
+    public Sprite vidaOn;
+    public Sprite vidaOff;
+
+    public void ApagarVida()
+    {
+        vidaImage.sprite = vidaOff;
+    }
+}
