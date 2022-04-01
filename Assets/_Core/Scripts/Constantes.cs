@@ -8,3 +8,12 @@ public class Constantes
     public static string TAG_BARRANCO = "Barranco";
     
 }
+
+public enum BloqueType
+{
+    Monedas = 0,
+    Hongos,
+    FlorFuego,
+    Estrella,
+    Vida
+}

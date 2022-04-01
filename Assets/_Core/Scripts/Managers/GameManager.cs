@@ -6,13 +6,15 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instancia;
+    public Player player;
     public int monedas;
     public int puntos;
     public TextMeshProUGUI monedasText;
     public TextMeshProUGUI puntosText;
     public List<UI_Vida> vidasList;
-    public Player player;
 
+    public GameObject gameOverMenu; 
+    public GameObject nivelCompletadoMenu; 
     void Start()
     {
         Instancia = this;
@@ -21,6 +23,18 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void GameOver()
+    {
+        player.playerMovement.BloquearMovimiento();
+        gameOverMenu.SetActive(true);
+    }
+    
+    public void NivelCompletado()
+    {
+        player.playerMovement.BloquearMovimiento();
+        nivelCompletadoMenu.SetActive(true);
     }
 
     public void AgregarPuntos(int _puntos)

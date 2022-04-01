@@ -14,6 +14,7 @@ public class Bloque : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other) {
         if(other.gameObject.tag != Constantes.TAG_PLAYER){ return; }
         if(GameManager.Instancia.player.playerMovement.estaEnSuelo){ return; }
+        
         particulas.Play();
         //gameObject.SetActive(false);
         spriteRenderer.enabled=false;

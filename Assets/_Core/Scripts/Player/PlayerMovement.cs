@@ -16,7 +16,18 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-    Debug.Log("Hola mundo");
+        //Debug.Log("Hola mundo");
+    }
+
+    public void BloquearMovimiento()
+    {
+        bloquearMovimiento = true;
+        rb.velocity = Vector2.zero;
+    }
+
+    public void DesbloquearMovimiento()
+    {
+        bloquearMovimiento = false;
     }
     
     void Update()

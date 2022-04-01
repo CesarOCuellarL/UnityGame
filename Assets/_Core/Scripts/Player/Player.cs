@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     private bool esInmune = false;
 
     private void OnTriggerEnter2D(Collider2D other){
-        Debug.Log("Colision con:"+ other.name); 
+        //Debug.Log("Colision con:"+ other.name); 
         if(other.tag == Constantes.TAG_MONEDA)
         {
             AgarrarMoneda(other);
@@ -33,10 +33,12 @@ public class Player : MonoBehaviour
         }else if(other.tag == Constantes.TAG_PUERTA){
             //NIVEL COMPLETADO
             Debug.Log("Nivel Completado!");
+            GameManager.Instancia.NivelCompletado();
         }
         else if(other.tag == Constantes.TAG_BARRANCO){
             //NIVEL COMPLETADO
             Debug.Log("Game Over");
+            GameManager.Instancia.GameOver();
         }
     }
     public void AgarrarMoneda(Collider2D other)
@@ -61,7 +63,9 @@ public class Player : MonoBehaviour
 
         if(vidas <=0)
         {
-            //murio 
+            //murio
+            GameManager.Instancia.GameOver(); 
+            return; 
         }
         
 
