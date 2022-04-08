@@ -15,6 +15,7 @@ public class Bloque : MonoBehaviour
         if(other.gameObject.tag != Constantes.TAG_PLAYER){ return; }
         if(GameManager.Instancia.player.playerMovement.estaEnSuelo){ return; }
         
+        AudioManager.Instancia.PlayAudio(AudioManager.AUDIO_ROMPERBLOQUE);
         particulas.Play();
         //gameObject.SetActive(false);
         spriteRenderer.enabled=false;

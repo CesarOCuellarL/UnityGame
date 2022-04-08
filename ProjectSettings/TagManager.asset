@@ -9,6 +9,8 @@ TagManager:
   - Puerta
   - Escenario
   - Barranco
+  - FxTemporaire
+  - Bomba
   layers:
   - Default
   - TransparentFX

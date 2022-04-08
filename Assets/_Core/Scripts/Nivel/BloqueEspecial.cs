@@ -6,10 +6,11 @@ using DG.Tweening;
 public class BloqueEspecial : MonoBehaviour
 {
     public BloqueType tipo;
-    public SpriteRenderer sprite;
+    public SpriteRenderer sprite; 
     public Sprite SpriteApagado;
     public Animator anim;
     public GameObject moneda;
+    public GameObject llave;
     public bool active = true;
 
     private void OnCollisionEnter2D(Collision2D other) {
@@ -25,12 +26,14 @@ public class BloqueEspecial : MonoBehaviour
         if(tipo == BloqueType.Monedas)
         {
             AnimarMoneda();
-        }else if(tipo == BloqueType.Hongos)
+        }else if(tipo == BloqueType.Vida)
         {
 
-        }else if(tipo == BloqueType.FlorFuego)
+        }else if(tipo == BloqueType.Estrella)
         {
 
+        }else if(tipo == BloqueType.Llave){
+            AnimarLlave();
         }
     }
 
@@ -47,5 +50,20 @@ public class BloqueEspecial : MonoBehaviour
     {
         moneda.transform.DOLocalMove(new Vector2(0, 0.5f), monedaSaltoTime).SetDelay(0.1f).OnComplete(() => moneda.SetActive(false));
     }
+
+     public float llaveSaltoTime;
+
+    public void AnimarLlave()
+    {
+        GameManager.Instancia.AgregarLlave();
+        llave.SetActive(true);
+        llave.transform.DOLocalMove(new Vector2(0, 2), llaveSaltoTime).OnComplete(MonedaOnComplete);
+    }
+
+    public void LlaveOnComplete()
+    {
+        llave.transform.DOLocalMove(new Vector2(0, 0.5f), llaveSaltoTime).SetDelay(0.1f).OnComplete(() => llave.SetActive(false));
+    }
+
 }
 

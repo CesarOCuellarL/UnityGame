@@ -12,4 +12,8 @@ public class UI_Vida : MonoBehaviour
     {
         vidaImage.sprite = vidaOff;
     }
+    public void PrenderVida()
+    {
+        vidaImage.sprite = vidaOn;
+    }
 }

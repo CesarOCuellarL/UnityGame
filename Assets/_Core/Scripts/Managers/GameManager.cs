@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instancia;
     public Player player;
+    public Nivel nivelActual;
     public int monedas;
     public int puntos;
     public TextMeshProUGUI monedasText;
@@ -15,25 +17,54 @@ public class GameManager : MonoBehaviour
 
     public GameObject gameOverMenu; 
     public GameObject nivelCompletadoMenu; 
+    public GameObject lootUI;
+    public GameObject lootUIPalanca;
+    public Button pauseButton;
+    public GameObject seleccionDeNivelMenu;
+
+     [Header("Llave")]
+    public bool tieneLlave = false;
+    public GameObject Llave;
+
     void Start()
     {
         Instancia = this;
+
+        pauseButton.onClick.AddListener(ShowLevelSelect);
+    }
+
+    public void ShowLevelSelect()
+    {
+        seleccionDeNivelMenu.SetActive(true);
     }
 
     void Update()
     {
         
     }
+    
+    public void IniciaSiguienteNivel()
+    {
+        onGameReset();
+    }
+
+    public void Retry()
+    {
+        onGameReset();
+        LevelManager.Instancia.Retry();
+    }
 
     public void GameOver()
     {
         player.playerMovement.BloquearMovimiento();
+        AudioManager.Instancia.PlayAudio(AudioManager.AUDIO_GAMEOVER);
         gameOverMenu.SetActive(true);
     }
     
     public void NivelCompletado()
     {
         player.playerMovement.BloquearMovimiento();
+        AudioManager.Instancia.PlayAudio(AudioManager.AUDIO_NIVELCOMPLETADO);
         nivelCompletadoMenu.SetActive(true);
     }
 
@@ -46,9 +77,17 @@ public class GameManager : MonoBehaviour
 
     public void AgregarMoneda()
     {
+        AudioManager.Instancia.PlayAudio(AudioManager.AUDIO_MONEDA);
         monedas++;
         monedasText.text = "X " + monedas.ToString();
         Debug.Log("Monedas: " + monedas);
+    }
+
+    public void AgregarLlave()
+    {      
+        AudioManager.Instancia.PlayAudio(AudioManager.AUDIO_MONEDA);
+        Llave.GetComponent<Animator>().Play("Llave");
+        tieneLlave = true;
     }
 
     public void QuitarVida(int _vidas)
@@ -56,5 +95,22 @@ public class GameManager : MonoBehaviour
         if(_vidas < 0){ return; }
 
         vidasList[_vidas].ApagarVida();
+    }
+
+    public void onGameReset()
+    {
+        player.ResetPlayer();
+
+        foreach(var vida in vidasList)
+        {
+            vida.PrenderVida();
+        }
+
+        monedas = 0;
+        monedasText.text = "X " + monedas.ToString();
+
+        puntos = 0;
+        puntosText.text = "00000";
+
     }
 }

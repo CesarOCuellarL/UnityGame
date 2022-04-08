@@ -57,6 +57,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 //saltar
                 //Debug.Log("salta!!!");
+                AudioManager.Instancia.PlayAudio(AudioManager.AUDIO_SALTO);
                 rb.velocity=new Vector2(rb.velocity.x,fuerzaSalto);
              };
     }

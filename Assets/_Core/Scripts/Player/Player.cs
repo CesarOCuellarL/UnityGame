@@ -12,8 +12,37 @@ public class Player : MonoBehaviour
 
     public Animator anim;
 
-    private int vidas = 3;
-    private bool esInmune = false;
+    public int vidas = Constantes.MAX_LIFE;
+    public bool esInmune = false;
+
+    [Header("Pistola")]
+    public GameObject pistola;
+    public GameObject bala;
+
+    void Start() 
+    {
+        
+    }
+
+    void Update() 
+    {
+        if(!pistola.activeInHierarchy){ return; }
+        if(Input.GetKeyDown(KeyCode.G))
+        {
+            Disparar();
+        }    
+    }
+
+    private void Disparar()
+    {
+        Instantiate(bala, pistola.transform.position, pistola.transform.rotation);
+    }
+
+    public void ResetPlayer()
+    {
+        vidas = Constantes.MAX_LIFE;
+        esInmune = false;
+    }
 
     private void OnTriggerEnter2D(Collider2D other){
         //Debug.Log("Colision con:"+ other.name); 
