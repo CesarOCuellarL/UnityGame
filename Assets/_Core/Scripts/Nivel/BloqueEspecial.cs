@@ -11,6 +11,7 @@ public class BloqueEspecial : MonoBehaviour
     public Animator anim;
     public GameObject moneda;
     public GameObject llave;
+    public GameObject vida;
     public bool active = true;
 
     private void OnCollisionEnter2D(Collision2D other) {
@@ -26,13 +27,17 @@ public class BloqueEspecial : MonoBehaviour
         if(tipo == BloqueType.Monedas)
         {
             AnimarMoneda();
-        }else if(tipo == BloqueType.Vida)
+        }
+        else if(tipo == BloqueType.Vida)
+        {
+            AnimarVida();
+        }
+        else if(tipo == BloqueType.Estrella)
         {
 
-        }else if(tipo == BloqueType.Estrella)
+        }
+        else if(tipo == BloqueType.Llave)
         {
-
-        }else if(tipo == BloqueType.Llave){
             AnimarLlave();
         }
     }
@@ -51,18 +56,32 @@ public class BloqueEspecial : MonoBehaviour
         moneda.transform.DOLocalMove(new Vector2(0, 0.5f), monedaSaltoTime).SetDelay(0.1f).OnComplete(() => moneda.SetActive(false));
     }
 
-     public float llaveSaltoTime;
+    public float llaveSaltoTime;
 
     public void AnimarLlave()
     {
         GameManager.Instancia.AgregarLlave();
         llave.SetActive(true);
-        llave.transform.DOLocalMove(new Vector2(0, 2), llaveSaltoTime).OnComplete(MonedaOnComplete);
+        llave.transform.DOLocalMove(new Vector2(0, 2), llaveSaltoTime).OnComplete(LlaveOnComplete);
     }
 
     public void LlaveOnComplete()
     {
         llave.transform.DOLocalMove(new Vector2(0, 0.5f), llaveSaltoTime).SetDelay(0.1f).OnComplete(() => llave.SetActive(false));
+    }
+
+    public float vidaSaltoTime;
+
+    public void AnimarVida()
+    {
+        GameManager.Instancia.AgregarVida();
+        vida.SetActive(true);
+        vida.transform.DOLocalMove(new Vector2(0, 2), vidaSaltoTime).OnComplete(VidaOnComplete);
+    }
+
+    public void VidaOnComplete()
+    {
+        vida.transform.DOLocalMove(new Vector2(0, 0.5f), vidaSaltoTime).SetDelay(0.1f).OnComplete(() => vida.SetActive(false));
     }
 
 }

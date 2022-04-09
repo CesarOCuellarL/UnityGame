@@ -28,6 +28,9 @@ public class GameManager : MonoBehaviour
     public GameObject Llave;
     public bool CambioPuerta = false;
 
+    [Header("Vidas")]
+    public int vidas = 0;
+
     void Start()
     {
         Instancia = this;
@@ -92,10 +95,20 @@ public class GameManager : MonoBehaviour
         tieneLlave = true;
     }
 
+     public void AgregarVida()
+    {
+        if(vidas > 2){ return; }      
+        AudioManager.Instancia.PlayAudio(AudioManager.AUDIO_MONEDA);
+        vidasList[vidas].PrenderVida();
+        vidas++;
+        player.vidas = vidas;
+    }
+
     public void QuitarVida(int _vidas)
     {
         if(_vidas < 0){ return; }
 
+        vidas = _vidas;
         vidasList[_vidas].ApagarVida();
     }
 
