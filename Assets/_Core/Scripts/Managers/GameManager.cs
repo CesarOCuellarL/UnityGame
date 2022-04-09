@@ -19,12 +19,14 @@ public class GameManager : MonoBehaviour
     public GameObject nivelCompletadoMenu; 
     public GameObject lootUI;
     public GameObject lootUIPalanca;
+    public GameObject lootUIPuerta;
     public Button pauseButton;
     public GameObject seleccionDeNivelMenu;
 
      [Header("Llave")]
     public bool tieneLlave = false;
     public GameObject Llave;
+    public bool CambioPuerta = false;
 
     void Start()
     {
@@ -40,7 +42,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        
+
     }
     
     public void IniciaSiguienteNivel()

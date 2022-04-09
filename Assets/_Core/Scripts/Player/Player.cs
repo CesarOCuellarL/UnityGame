@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.G))
         {
             Disparar();
-        }    
+        }   
     }
 
     private void Disparar()
@@ -62,7 +62,10 @@ public class Player : MonoBehaviour
         }else if(other.tag == Constantes.TAG_PUERTA){
             //NIVEL COMPLETADO
             Debug.Log("Nivel Completado!");
-            GameManager.Instancia.NivelCompletado();
+            if(GameManager.Instancia.tieneLlave == true && GameManager.Instancia.CambioPuerta == true)
+            {
+                GameManager.Instancia.NivelCompletado();
+            }
         }
         else if(other.tag == Constantes.TAG_BARRANCO){
             //NIVEL COMPLETADO

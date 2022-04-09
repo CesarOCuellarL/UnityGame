@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class PlayerSpring : MonoBehaviour
 {
+    public Animator anim; 
     void Start()
     {
         
     }
     private void OnCollisionEnter2D(Collision2D other) {
         if(other.gameObject.tag != Constantes.TAG_PLAYER){ return; }
-        if(GameManager.Instancia.player.playerMovement.rb.velocity.y <= 0 ){ 
-            Debug.Log("Personaje Pisando");        
-        }
+            GameManager.Instancia.player.playerMovement.rb.AddForce(new Vector2(500, 900));
+            anim.Play("Trampolin");      
     }
 }

@@ -1476,9 +1476,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 084e440ab0c107d4ea39e0e28a8bdf01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puntosPara3Estrellas: 1000
+  puntosPara3Estrellas: 1300
   vidasPara3Estrellas: 3
-  puntosPara2Estrellas: 500
+  puntosPara2Estrellas: 700
   vidasPara2Estrellas: 2
 --- !u!1001 &1178055351
 PrefabInstance:
@@ -1903,6 +1903,10 @@ PrefabInstance:
     - target: {fileID: 6833874330540950345, guid: 2eda5442085e6804293994accec62928, type: 3}
       propertyPath: m_Name
       value: Bloque_Monedas (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7105512851717607268, guid: 2eda5442085e6804293994accec62928, type: 3}
+      propertyPath: tipo
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3354321047412217442, guid: 2eda5442085e6804293994accec62928, type: 3}
@@ -2574,6 +2578,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 658f7bde019830542a009426b68faa43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 1714707604}
 --- !u!95 &1714707604
 Animator:
   serializedVersion: 3
@@ -2606,7 +2611,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.007423401, y: -0.1930142}
+  m_Offset: {x: 0.016365051, y: 0.060391963}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2617,7 +2622,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0148468, y: 0.5248884}
+  m_Size: {x: 1.5462799, y: 0.19184029}
   m_EdgeRadius: 0
 --- !u!1001 &1720404941
 PrefabInstance:

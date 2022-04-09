@@ -57,6 +57,7 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
      <Compile Include="Assets\_Core\Scripts\Nivel\BloqueEspecial.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
+     <Compile Include="Assets\_Core\Scripts\Nivel\PlayerPalanca.cs" />
      <Compile Include="Assets\_Core\Scripts\Nivel\Nivel.cs" />
      <Compile Include="Assets\_Core\Scripts\Nivel\Bloque.cs" />
      <Compile Include="Assets\_Core\Scripts\Enemies\Enemy.cs" />
@@ -72,6 +73,7 @@
      <Compile Include="Assets\_Core\Scripts\Nivel\MoverObjeto.cs" />
      <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_AutoStopLoopedEffect.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
+     <Compile Include="Assets\_Core\Scripts\Nivel\PlayerSpring.cs" />
      <Compile Include="Assets\_Core\Scripts\UI\UI_Estrella.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
      <Compile Include="Assets\_Core\Scripts\Player\Player.cs" />

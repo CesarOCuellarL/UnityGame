@@ -5,12 +5,12 @@ using UnityEngine;
 public class Nivel : MonoBehaviour
 {
     [Header("Condiciones para 3 Estrellas")]
-    [Range(0,1000)]
+    [Range(0,1500)]
     public int puntosPara3Estrellas;
     [Range(0,3)]
     public int vidasPara3Estrellas;
     [Header("Condiciones para 2 Estrellas")]
-    [Range(0,1000)]
+    [Range(0,1500)]
     public int puntosPara2Estrellas;
     [Range(0,3)]
     public int vidasPara2Estrellas;

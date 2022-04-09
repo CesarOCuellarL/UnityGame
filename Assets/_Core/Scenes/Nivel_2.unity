@@ -2265,6 +2265,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bloque_Monedas (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 7105512851717607268, guid: 2eda5442085e6804293994accec62928, type: 3}
+      propertyPath: tipo
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2eda5442085e6804293994accec62928, type: 3}
 --- !u!1001 &1530151049
@@ -2931,6 +2935,10 @@ PrefabInstance:
     - target: {fileID: 6833874330540950345, guid: 2eda5442085e6804293994accec62928, type: 3}
       propertyPath: m_Name
       value: Bloque_Monedas (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7105512851717607268, guid: 2eda5442085e6804293994accec62928, type: 3}
+      propertyPath: tipo
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2eda5442085e6804293994accec62928, type: 3}
